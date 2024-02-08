@@ -1,5 +1,5 @@
-% Constants for both tests
 x = 0:100;
+
 a1 = 1;
 a2 = sqrt(10);
 
@@ -8,8 +8,7 @@ a2 = sqrt(10);
 %%%%%%
 x1 = rand(1, 101);
 
-%convolving x1 with unit step <-- This is by principle of doing so and
-%doesn't actually change x1 whatsoever
+%convolving x1 with unit step
 x1 = conv(x1, heaviside(x));
 
 % Building yc and yi using separate gain application methods
@@ -31,22 +30,21 @@ end
 %%%%%%
 % h2 %
 %%%%%%
-x2 = normrnd(0, 1, 1, 101);
+y2 = normrnd(0, 1, 1, 101);
 
-%% Building right-shifted vector for use in [n+1] part of function %%
+% Building right-shifted vector for use in [n+1] part of function %%
 
-% Concatenating x2 with a 1x1 vector containing 0, hence assuming that
+% Concatenating y2 with a 1x1 vector containing 0, hence assuming that
 % values <= 0 are 0 
-shifted = [0, x2];
+shifted = [0, y2];
 
 % Cutting off highest index to restore proper vector length
 slice = temp(1:101);
 final = n.*slice;
 
-
 % Building yc and yi using separate gain application methods
-yc2 = (a1*x2+a2*x2)+(a1*final+a2*final);
-yi2 = (a1*(x2+final))+(a2*(x2+final));
+yc2 = (a1*y2+a2*y2)+(a1*final+a2*final);
+yi2 = (a1*(y2+final))+(a2*(y2+final));
 
 % Rounding off values to prevent false negatives due to rounding
 % inconsistency

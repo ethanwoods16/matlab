@@ -15,7 +15,6 @@ subplot(5,4,[5,8]);
 x = -20:0.5:40;
 y = heaviside(x);
 y(y == 0.5) = 1;
-%fplot(heaviside(x), [-20 40])
 stem(x, y)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
