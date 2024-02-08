@@ -9,7 +9,7 @@ x = ones(1, n);
 subplot(4, 1, 1);
 
 h = impz(b, a, n);
-plot(h)
+stem(h)
 
 %%%%%%%%%%
 % filter %
@@ -17,7 +17,7 @@ plot(h)
 subplot(4, 1, 2);
 
 y = filter(b, a, x);
-plot(y)
+stem(y)
 
 %%%%%%%%
 % conv %
@@ -25,7 +25,7 @@ plot(y)
 subplot(4, 1, 3);
 
 y = conv(h, x);
-plot(y)
+stem(y)
 
 %%%%%%%%%%
 % filter %
@@ -33,4 +33,4 @@ plot(y)
 subplot(4, 1, 4);
 
 y = filter(h, 1, x);
-plot(y)
+stem(y)
