@@ -40,9 +40,8 @@ x2 = normrnd(0, 1, 1, 101);
 shifted = [0, x2];
 
 % Cutting off highest index to restore proper vector length
-slice = temp(1:101);
-final = n.*slice;
-
+slice = shifted(1:101);
+final = x.*slice;
 
 % Building yc and yi using separate gain application methods
 yc2 = (a1*x2+a2*x2)+(a1*final+a2*final);
